@@ -1,5 +1,14 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+    def __repr__(self) -> str:
+        return str(self.data)
+
+
 class LinkedList:
-    def __init__(self, items=None):
+    def __init__(self, items: list = None):
         self.head = None
 
         if items:
@@ -10,7 +19,7 @@ class LinkedList:
                     node.next = Node(items[i])
                     node = node.next
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         nodes = []
         node = self.head
 
@@ -20,14 +29,14 @@ class LinkedList:
 
         return " -> ".join(nodes)
 
-    def __iter__(self):
+    def __iter__(self) -> Node:
         node = self.head
 
         while node:
             yield node
             node = node.next
 
-    def find(self, data):
+    def find(self, data) -> Node:
         node = self.head
 
         while node:
@@ -46,20 +55,7 @@ class LinkedList:
         node.next = Node(data)
 
 
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-
-    def __repr__(self):
-        return str(self.data)
-
-
 linked_list = LinkedList([1, 2, 3, 4])
 print(linked_list) # 1 -> 2 -> 3 -> 4
 linked_list.append(5) # 1 -> 2 -> 3 -> 4 -> 5
 print(linked_list.find(6)) # None
-
-
-
-
