@@ -6,6 +6,10 @@ class Node:
     def __repr__(self) -> str:
         return str(self.data)
 
+    def __eq__(self, other):
+        if isinstance(other, Node):
+            return self.data == other.data
+        return False
 
 class LinkedList:
     def __init__(self, items: list = None):
@@ -46,6 +50,25 @@ class LinkedList:
         
         return None
 
+    # TODO find other implementation
+    # TODO Java, C? implementation
+    def delete_node(self, data):
+        if not self.head:
+            raise Exception("Linked List is empty!")
+
+        if data == self.head.data:
+            node = self.head
+            self.head = self.head.next
+            return node
+
+        previous_node = self.head
+        for node in self:
+            if node.data == data:
+                if node.data == data:
+                    previous_node.next = node.next
+                    return node
+            previous_node = node
+
     def append(self, data):
         node = self.head
 
@@ -54,8 +77,14 @@ class LinkedList:
 
         node.next = Node(data)
 
+    def __eq__(self, other):
+        if isinstance(other, LinkedList):
+            node = self.head
+            other_node = other.head
+            while node:
+                if node.data == other_node.data:
+                    return node == other_node
+            return True
+        else:
+            return False
 
-linked_list = LinkedList([1, 2, 3, 4])
-print(linked_list) # 1 -> 2 -> 3 -> 4
-linked_list.append(5) # 1 -> 2 -> 3 -> 4 -> 5
-print(linked_list.find(6)) # None
