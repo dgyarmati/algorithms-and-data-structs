@@ -11,6 +11,7 @@ class Node:
             return self.data == other.data
         return False
 
+
 class LinkedList:
     def __init__(self, items: list = None):
         self.head = None
@@ -47,7 +48,7 @@ class LinkedList:
             if node.data == data:
                 return node
             node = node.next
-        
+
         return None
 
     # TODO find other implementation
@@ -87,4 +88,3 @@ class LinkedList:
             return True
         else:
             return False
-
