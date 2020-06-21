@@ -42,3 +42,18 @@ class LinkedListTest(unittest.TestCase):
         expected = LinkedList([1, 2, 3])
         self.assertEqual(expected, linked_list)
 
+    def test_remove_dups(self):
+        linked_list = LinkedList([1, 2, 2, 4])
+        linked_list.remove_duplicates()
+        linked_list_repr = linked_list.__repr__()
+        expected_repr = "1 -> 2 -> 4"
+        self.assertEqual(expected_repr, linked_list_repr)
+
+    def test_remove_dups_no_buffer(self):
+        linked_list = LinkedList([1, 1, 2, 3, 4])
+        linked_list.remove_duplicates_no_buffer()
+        linked_list_repr = linked_list.__repr__()
+        expected_repr = "1 -> 2 -> 3 -> 4"
+        self.assertEqual(expected_repr, linked_list_repr)
+
+

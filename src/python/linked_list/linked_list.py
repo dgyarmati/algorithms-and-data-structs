@@ -34,6 +34,17 @@ class LinkedList:
 
         return " -> ".join(nodes)
 
+    def __eq__(self, other):
+        if isinstance(other, LinkedList):
+            node = self.head
+            other_node = other.head
+            while node:
+                if node.data == other_node.data:
+                    return node == other_node
+            return True
+        else:
+            return False
+
     def __iter__(self) -> Node:
         node = self.head
 
@@ -52,7 +63,8 @@ class LinkedList:
         return None
 
     # TODO find other implementation
-    # TODO Java, C? implementation
+    # TODO Java, C? JS implementation
+    # TODO recursive solution
     def delete_node(self, data):
         if not self.head:
             raise Exception("Linked List is empty!")
@@ -78,13 +90,23 @@ class LinkedList:
 
         node.next = Node(data)
 
-    def __eq__(self, other):
-        if isinstance(other, LinkedList):
-            node = self.head
-            other_node = other.head
-            while node:
-                if node.data == other_node.data:
-                    return node == other_node
-            return True
-        else:
-            return False
+    # naive solution w buffer - O(N)
+    def remove_duplicates(self):
+        if not self.head:
+            raise Exception("Linked List is empty!")
+
+        node = self.head
+        duplicates = set()
+        previous = None
+
+        while node:
+            if node.data in duplicates:
+                previous.next = node.next
+            else:
+                duplicates.add(node.data)
+                previous = node
+            node = node.next
+
+    # naive solution w runner- O(N^2), space complexity: 1
+    def remove_duplicates_runner(self):
+        pass
