@@ -1,0 +1,32 @@
+General gotchas
+    General notes
+        Can be implemented as a node with a head
+        Probably needs wrapper, because if multiple objects need a reference to it, the head can still change
+    Questions:
+        O complexity
+    O:
+       No index, so finding stuff is slower than with an array
+       Add or remove elements from the beginning or the end in constant time
+    Create a Node class with data and next
+    Create LinkedList with head
+    In Python:
+        Iterate with for loop from self, otherwise reassign fails
+        Create __iter__ with generator
+    Normal iteration (find): while node, node = node.next
+    Append: while node.next, node = node.next
+    Remove duplicates:
+        Simple solution: keep track of the duplicates in a set, and have a previous node so that you can reassign its .next property. The trick is that you add every element not in the duplicates set, until something is in it, then reassign previous.next = node.next
+        Gotcha: you need to remove only the duplicates, so the original remains
+        O(N), 1 space complexity
+    Remove duplicates 2:
+        O(N ^ 2)
+    Delete node:
+        Ask: does it need to return, does it need exception when empty?
+        Ask: API?
+        Ask: error handling?
+        Raise exception on empty head
+        Otherwise:
+            Check head
+                If not in head: save head as previous node, head as node, then iterate and reassign: prev_node = node, node = node.next
+                Or in Java: while node.next, node.next.next
+

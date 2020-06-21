@@ -1,5 +1,5 @@
 import unittest
-from src.data_structs.linked_list import LinkedList
+from src.data_structs.linked_list.linked_list import LinkedList
 
 
 class LinkedListTest(unittest.TestCase):
