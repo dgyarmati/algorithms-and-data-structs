@@ -33,8 +33,12 @@ General gotchas
     Find kth to last:
         It means that you need to find the nth element counting FROM the end.
         Iterative:
+            - if the LL size is known, we can find it by size - k - trivial solution
             - O(N) tc, O(1) sc
             - k starts from 1
             - have two pointers. move the first to k, then, until you run out of first, move first and second one step, and return second.
         Recursive:
+            - probably you can print only. you should pass and increment the index with each recursive call, then when the stack returns, check against the index and if matches, print it
+        Delete from middle:
+            - you don't get the head, so just adjust the received node
 

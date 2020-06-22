@@ -69,4 +69,15 @@ class LinkedListTest(unittest.TestCase):
         actual_node = linked_list.get_kth_to_last(10)
         self.assertEqual(expected_node, actual_node)
 
+    def test_print_kth_to_last(self):
+        linked_list = LinkedList([1, 1, 2, 3, 4])
+        linked_list.print_kth_to_last(linked_list.head, 3)
+
+    def test_delete_middle_node(self):
+        linked_list = LinkedList([1, 1, 2, 3, 4])
+        node = linked_list.find(2)
+        linked_list.delete_middle_node(node)
+        self.assertEqual("1 -> 1 -> 3 -> 4", linked_list.__repr__())
+
+
 

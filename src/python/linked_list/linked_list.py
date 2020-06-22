@@ -77,9 +77,8 @@ class LinkedList:
         previous_node = self.head
         for node in self:
             if node.data == data:
-                if node.data == data:
-                    previous_node.next = node.next
-                    return node
+                previous_node.next = node.next
+                return node
             previous_node = node
 
     def append(self, data):
@@ -141,4 +140,17 @@ class LinkedList:
 
         return node2
 
+    # recursive solution, O(n) time
+    def print_kth_to_last(self, node, k):
+        if not node:
+            return 0
+        idx = self.print_kth_to_last(node.next, k) + 1
+        if idx == k:
+            print(k, "th last node is", node.data)
+        return idx
 
+    def delete_middle_node(self, node):
+        if not node or not node.next:
+            return None
+        node.data = node.next.data
+        node.next = node.next.next
