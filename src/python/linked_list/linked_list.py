@@ -127,11 +127,18 @@ class LinkedList:
     def get_kth_to_last(self, k):
         if not self.head:
             raise Exception("Linked List is empty!")
-        count = 0
-        for node in self:
-            if count == k:
-                current_node = node
-                return current_node
-            count += 1
+        node1 = node2 = self.head
+
+        for i in range(k):
+            if node1.next:
+                node1 = node1.next
+            else:
+                return None
+
+        while node1:
+            node1 = node1.next
+            node2 = node2.next
+
+        return node2
 
 

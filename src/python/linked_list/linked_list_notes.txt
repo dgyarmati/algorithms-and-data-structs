@@ -30,4 +30,11 @@ General gotchas
             Check head
                 If not in head: save head as previous node, head as node, then iterate and reassign: prev_node = node, node = node.next
                 Or in Java: while node.next, node.next.next
+    Find kth to last:
+        It means that you need to find the nth element counting FROM the end.
+        Iterative:
+            - O(N) tc, O(1) sc
+            - k starts from 1
+            - have two pointers. move the first to k, then, until you run out of first, move first and second one step, and return second.
+        Recursive:
 

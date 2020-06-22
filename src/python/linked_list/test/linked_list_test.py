@@ -1,5 +1,6 @@
 import unittest
 from src.data_structs.linked_list.linked_list import LinkedList
+from src.data_structs.linked_list.linked_list import Node
 
 
 class LinkedListTest(unittest.TestCase):
@@ -56,17 +57,16 @@ class LinkedListTest(unittest.TestCase):
         expected_repr = "1 -> 2 -> 3 -> 4"
         self.assertEqual(expected_repr, linked_list_repr)
 
-    def test_kth_to_last(self):
+    def test_kth_to_last_returns_correct_value(self):
         linked_list = LinkedList([1, 1, 2, 3, 4])
-        kth_node = linked_list.get_kth_to_last(2)
+        expected_node = Node(3)
+        actual_node = linked_list.get_kth_to_last(2)
+        self.assertEqual(expected_node, actual_node)
 
-        expected_values = "234"
-        actual_values = ""
-        node = kth_node
-        while node:
-            actual_values += str(node.data)
-            node = node.next
-
-        self.assertEqual(expected_values, actual_values)
+    def test_kth_to_last_returns_none_if_value_does_not_exist(self):
+        linked_list = LinkedList([1, 1, 2, 3, 4])
+        expected_node = None
+        actual_node = linked_list.get_kth_to_last(10)
+        self.assertEqual(expected_node, actual_node)
 
 
