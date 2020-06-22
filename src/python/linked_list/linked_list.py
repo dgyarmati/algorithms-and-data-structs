@@ -83,12 +83,15 @@ class LinkedList:
             previous_node = node
 
     def append(self, data):
-        node = self.head
+        if not self.head:
+            self.head = Node(data)
+        else:
+            node = self.head
 
-        while node.next:
-            node = node.next
+            while node.next:
+                node = node.next
 
-        node.next = Node(data)
+            node.next = Node(data)
 
     # naive solution w buffer - O(N)
     def remove_duplicates(self):
@@ -108,5 +111,27 @@ class LinkedList:
             node = node.next
 
     # naive solution w runner- O(N^2), space complexity: 1
-    def remove_duplicates_runner(self):
-        pass
+    def remove_duplicates_with_runner(self):
+        if not self.head:
+            raise Exception("Linked List is empty!")
+        node = second_node = self.head
+        while node:
+            while second_node.next:
+                if node.data == second_node.next.data:
+                    second_node.next = second_node.next.next
+                else:
+                    second_node = second_node.next
+            node = second_node = node.next
+
+    # iterative solution, O(n) time and O(1) space
+    def get_kth_to_last(self, k):
+        if not self.head:
+            raise Exception("Linked List is empty!")
+        count = 0
+        for node in self:
+            if count == k:
+                current_node = node
+                return current_node
+            count += 1
+
+

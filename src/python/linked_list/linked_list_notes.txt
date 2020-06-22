@@ -20,6 +20,7 @@ General gotchas
         O(N), 1 space complexity
     Remove duplicates 2:
         O(N ^ 2)
+        Have a runner ready, use double loop, and check for runner.next == current
     Delete node:
         Ask: does it need to return, does it need exception when empty?
         Ask: API?
