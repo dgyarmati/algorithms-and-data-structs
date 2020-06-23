@@ -1,8 +1,6 @@
 import unittest
 from src.data_structs.linked_list.linked_list import LinkedList
 from src.data_structs.linked_list.linked_list import Node
-from src.data_structs.linked_list.linked_list import is_intersection_present
-from src.data_structs.linked_list.linked_list import sum_linked_lists_reverse
 
 
 class LinkedListTest(unittest.TestCase):
@@ -81,54 +79,7 @@ class LinkedListTest(unittest.TestCase):
         linked_list.delete_middle_node(node)
         self.assertEqual("1 -> 1 -> 3 -> 4", linked_list.__repr__())
 
-    def test_linked_list_is_palindrome_returns_true(self):
-        linked_list = LinkedList(["n", "u", "r", "s", "e", "s", "r", "u", "n"])
-        self.assertTrue(linked_list.is_palindrome())
 
-    def test_linked_list_is_palindrome_returns_false(self):
-        linked_list = LinkedList(["w", "o", "l", "f"])
-        k = linked_list.is_palindrome()
-        self.assertFalse(linked_list.is_palindrome())
-
-    def test_is_intersection_present_returns_true(self):
-        common_node = Node(8)
-        linked_list_1 = LinkedList()
-
-        linked_list_1.head = common_node
-        linked_list_1.append(1)
-        linked_list_1.append(2)
-        linked_list_1.append(3)
-
-        linked_list_2 = LinkedList()
-        linked_list_2.append(4)
-        linked_list_2.head.next = common_node
-        linked_list_2.append(5)
-        linked_list_2.append(6)
-
-        self.assertTrue(is_intersection_present(linked_list_1, linked_list_2))
-
-    def test_is_intersection_present_returns_false(self):
-        linked_list_1 = LinkedList([1, 1, 2, 3, 4])
-        linked_list_2 = LinkedList([1, 1, 2, 3, 4])
-
-        self.assertFalse(is_intersection_present(linked_list_1, linked_list_2))
-
-    def test_get_circular_loop_head_returns_true(self):
-        linked_list = LinkedList([1, 2, 3])
-        linked_list.head.next.next.next = linked_list.head
-
-        self.assertEqual(linked_list.get_circular_loop_head().data, 1)
-
-    def test_get_circular_loop_head_returns_false(self):
-        linked_list = LinkedList([1, 2, 3, 4])
-
-        self.assertIsNone(linked_list.get_circular_loop_head())
-
-    def test_sum_linked_lists_reverse(self):
-        linked_list_1 = LinkedList([7, 1, 6])
-        linked_list_2 = LinkedList([5, 9, 2])
-        expected = LinkedList([2, 1, 9])
-        self.assertEqual(expected, sum_linked_lists_reverse(linked_list_1, linked_list_2))
 
 
 

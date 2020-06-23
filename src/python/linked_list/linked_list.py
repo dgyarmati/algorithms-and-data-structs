@@ -1,7 +1,3 @@
-import math
-from collections import deque
-
-
 class Node:
     def __init__(self, data):
         self.data = data
@@ -66,9 +62,17 @@ class LinkedList:
 
         return None
 
-    # TODO find other implementation
-    # TODO Java, C? JS implementation
-    # TODO recursive solution
+    def append(self, data):
+        if not self.head:
+            self.head = Node(data)
+        else:
+            node = self.head
+
+            while node.next:
+                node = node.next
+
+            node.next = Node(data)
+
     def delete_node(self, data):
         if not self.head:
             raise Exception("Linked List is empty!")
@@ -84,17 +88,6 @@ class LinkedList:
                 previous_node.next = node.next
                 return node
             previous_node = node
-
-    def append(self, data):
-        if not self.head:
-            self.head = Node(data)
-        else:
-            node = self.head
-
-            while node.next:
-                node = node.next
-
-            node.next = Node(data)
 
     # naive solution w buffer - O(N)
     def remove_duplicates(self):
@@ -163,106 +156,18 @@ class LinkedList:
         pass
 
     def is_palindrome(self):
-        if not self.head:
-            raise Exception("Linked List is empty!")
-        # could be done with lists, but appending to the beginning of a list is expensive - just as reversing afterwards would be
-        elements = deque()
-        reversed = deque()
-        node = self.head
-        while node:
-            elements.append(node.data)
-            reversed.appendleft(node.data)
-            node = node.next
-        return reversed == elements
-
-    def len(self):
-        if not self.head:
-            return 0
-        node = self.head
-        count = 0
-        while node:
-            node = node.next
-            count += 1
-        return count
+        pass
 
     def get_circular_loop_head(self):
-        if not self.head:
-            raise Exception("Linked List is empty!")
-        tortoise = self.head
-        hare = self.head
-
-        while tortoise.next and hare.next.next:
-            tortoise = tortoise.next
-            hare = hare.next.next
-            if hare is tortoise:
-                return hare
-
-        return None
+        pass
 
 
-# TODO refactor repeated code to methods
 def sum_linked_lists_reverse(linked_list_1, linked_list_2):
-    first_num_digits = deque()
-    node = linked_list_1.head
-
-    while node:
-        first_num_digits.appendleft(node.data)
-        node = node.next
-
-    second_num_digits = deque()
-    node = linked_list_2.head
-    while node:
-        second_num_digits.appendleft(node.data)
-        node = node.next
-
-    decimal_place = 10 ** (len(first_num_digits) - 1)
-    num_1 = 0
-    for num in first_num_digits:
-        num_1 += num * decimal_place
-        decimal_place = int(decimal_place / 10)
-
-    decimal_place = 10 ** (len(first_num_digits) - 1)
-    num_2 = 0
-    for num in second_num_digits:
-        num_2 += num * decimal_place
-        decimal_place = int(decimal_place / 10)
-
-    sum_of_nums = num_1 + num_2
-    reversed_digits = []
-
-    while sum_of_nums >= 1:
-        digit = sum_of_nums % 10
-        reversed_digits.append(digit)
-        sum_of_nums = int(sum_of_nums / 10)
-
-    ll = LinkedList(list(reversed_digits))
-    return ll
+    pass
 
 
 def is_intersection_present(linked_list_1, linked_list_2):
-    linked_list_1_len = linked_list_1.len()
-    linked_list_2_len = linked_list_2.len()
-
-    if linked_list_1_len and linked_list_2_len:
-        if linked_list_1_len >= linked_list_2_len:
-            shorter = linked_list_2
-            longer = linked_list_1
-        else:
-            shorter = linked_list_1
-            longer = linked_list_2
-
-        node1 = shorter.head
-        node2 = longer.head
-
-        while node1:
-            while node2:
-                if node1 is node2:
-                    return True
-                node2 = node2.next
-            node1 = node1.next
-            node2 = longer.head
-    else:
-        return False
+    pass
 
 
 
