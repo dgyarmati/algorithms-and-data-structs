@@ -1,6 +1,6 @@
 import unittest
-from src.data_structs.linked_list.linked_list import LinkedList
-from src.data_structs.linked_list.linked_list import Node
+from src.python.ctci.linked_list.linked_list import LinkedList
+from src.python.ctci.linked_list import Node
 
 
 class LinkedListTest(unittest.TestCase):
