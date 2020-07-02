@@ -59,3 +59,9 @@ class TestRecursiveExamples(unittest.TestCase):
         expected = None
         actual = binary_search(numbers, 8)
         self.assertEqual(expected, actual)
+
+    def test_recursive_binary_search_returns_none_for_empty_list(self):
+        numbers = []
+        expected = None
+        actual = binary_search(numbers, 8)
+        self.assertEqual(expected, actual)
