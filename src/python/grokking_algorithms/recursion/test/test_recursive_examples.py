@@ -3,6 +3,7 @@ from src.python.grokking_algorithms.recursion.find_key_in_boxes import find_box_
 from src.python.grokking_algorithms.recursion.factorial import factorial
 from src.python.grokking_algorithms.recursion.sum import sum_values
 from src.python.grokking_algorithms.recursion.count import count_items
+from src.python.grokking_algorithms.recursion.find_maximum_number import find_maximum_number
 
 
 class TestRecursiveExamples(unittest.TestCase):
@@ -38,4 +39,10 @@ class TestRecursiveExamples(unittest.TestCase):
         items = [1, 2, 3, 4, 5]
         expected = 5
         actual = count_items(items)
+        self.assertEqual(expected, actual)
+
+    def test_find_maximum_number_returns_maximum_number(self):
+        numbers = [1, 0, -3, 4, 245]
+        expected = 245
+        actual = find_maximum_number(numbers)
         self.assertEqual(expected, actual)
