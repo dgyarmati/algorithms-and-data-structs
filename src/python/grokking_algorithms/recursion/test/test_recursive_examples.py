@@ -9,6 +9,11 @@ class TestRecursiveExamples(unittest.TestCase):
         box_with_key = find_box_with_key(box)
         self.assertEqual("key", box_with_key[0])
 
+    def test_find_key_in_boxes_returns_none_with_empty_boxes(self):
+        box = [[], [], [], []]
+        box_with_key = find_box_with_key(box)
+        self.assertIsNone(box_with_key)
+
     def test_factorial(self):
         n = 5
         expected = 120
