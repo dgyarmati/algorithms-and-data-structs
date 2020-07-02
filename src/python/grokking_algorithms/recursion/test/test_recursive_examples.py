@@ -4,6 +4,7 @@ from src.python.grokking_algorithms.recursion.factorial import factorial
 from src.python.grokking_algorithms.recursion.sum import sum_values
 from src.python.grokking_algorithms.recursion.count import count_items
 from src.python.grokking_algorithms.recursion.find_maximum_number import find_maximum_number
+from src.python.grokking_algorithms.recursion.recursive_binary_search import binary_search
 
 
 class TestRecursiveExamples(unittest.TestCase):
@@ -45,4 +46,16 @@ class TestRecursiveExamples(unittest.TestCase):
         numbers = [1, 0, -3, 4, 245]
         expected = 245
         actual = find_maximum_number(numbers)
+        self.assertEqual(expected, actual)
+
+    def test_recursive_binary_search_finds_value_index(self):
+        numbers = [1, 2, 3, 4, 5]
+        expected = [0, 1, 2, 3, 4]
+        actual = [binary_search(numbers, number) for number in numbers]
+        self.assertEqual(expected, actual)
+
+    def test_recursive_binary_search_returns_none_if_value_is_not_present(self):
+        numbers = [1, 2, 3, 4, 5]
+        expected = None
+        actual = binary_search(numbers, 8)
         self.assertEqual(expected, actual)

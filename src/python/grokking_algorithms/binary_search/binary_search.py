@@ -1,12 +1,9 @@
-import math
-
-
 def binary_search(values, n):
     lo = 0
     hi = len(values) - 1
 
     while lo <= hi:
-        mid = math.floor((lo + hi) / 2)
+        mid = (lo + hi) // 2
         guess = values[mid]
         if guess > n:
             hi = mid - 1
@@ -22,7 +19,7 @@ def binary_search_speed(values, n):
     counter = 0
 
     while lo <= hi:
-        mid = math.floor((lo + hi) / 2)
+        mid = (lo + hi) // 2
         guess = values[mid]
         if guess > n:
             hi = mid - 1
