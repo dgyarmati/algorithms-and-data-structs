@@ -13,7 +13,7 @@ def binary_search(values, n):
             return mid
 
 
-def binary_search_speed(values, n):
+def gauge_binary_search_speed(values, n):
     lo = 0
     hi = len(values) - 1
     counter = 0
