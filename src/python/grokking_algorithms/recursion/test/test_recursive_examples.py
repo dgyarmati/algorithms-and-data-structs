@@ -1,6 +1,7 @@
 import unittest
 from src.python.grokking_algorithms.recursion.find_key_in_boxes import find_box_with_key
 from src.python.grokking_algorithms.recursion.factorial import factorial
+from src.python.grokking_algorithms.recursion.sum import sum_values
 
 
 class TestRecursiveExamples(unittest.TestCase):
@@ -18,4 +19,16 @@ class TestRecursiveExamples(unittest.TestCase):
         n = 5
         expected = 120
         actual = factorial(n)
+        self.assertEqual(expected, actual)
+
+    def test_sum_works_properly(self):
+        values = [1, 2, 3]
+        expected = 6
+        actual = sum_values(values)
+        self.assertEqual(expected, actual)
+
+    def test_sum_returns_zero_on_empty_array(self):
+        values = []
+        expected = 0
+        actual = sum_values(values)
         self.assertEqual(expected, actual)
