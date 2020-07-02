@@ -21,7 +21,7 @@ class TestRecursiveExamples(unittest.TestCase):
         actual = factorial(n)
         self.assertEqual(expected, actual)
 
-    def test_sum_works_properly(self):
+    def test_sum_returns_sum_of_values(self):
         values = [1, 2, 3]
         expected = 6
         actual = sum_values(values)
