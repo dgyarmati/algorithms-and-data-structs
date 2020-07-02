@@ -2,6 +2,7 @@ import unittest
 from src.python.grokking_algorithms.recursion.find_key_in_boxes import find_box_with_key
 from src.python.grokking_algorithms.recursion.factorial import factorial
 from src.python.grokking_algorithms.recursion.sum import sum_values
+from src.python.grokking_algorithms.recursion.count import count_items
 
 
 class TestRecursiveExamples(unittest.TestCase):
@@ -31,4 +32,10 @@ class TestRecursiveExamples(unittest.TestCase):
         values = []
         expected = 0
         actual = sum_values(values)
+        self.assertEqual(expected, actual)
+
+    def test_count_items_returns_valid_count(self):
+        items = [1, 2, 3, 4, 5]
+        expected = 5
+        actual = count_items(items)
         self.assertEqual(expected, actual)
