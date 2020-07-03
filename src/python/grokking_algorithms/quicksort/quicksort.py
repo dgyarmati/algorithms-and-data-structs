@@ -26,10 +26,10 @@ def partition(items, first_idx, last_idx):
     while True:
 
         while lo_idx <= hi_idx and items[lo_idx] <= pivot_item:
-            lo_idx = lo_idx + 1
+            lo_idx += 1
 
         while hi_idx >= lo_idx and items[hi_idx] >= pivot_item:
-            hi_idx = hi_idx - 1
+            hi_idx -= 1
 
         if hi_idx < lo_idx:
             break
