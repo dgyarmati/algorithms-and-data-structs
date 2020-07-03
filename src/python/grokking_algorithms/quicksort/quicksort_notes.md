@@ -14,3 +14,13 @@ Picking the right pivot is hard: choosing the first or last element leads to wor
 
 To sum up, quick sort is better for small datasets and arrays, while merge sort is better for large data sets and linked lists.
 Also, quick sort sorts in place, so does not require additional memory, while merge sort does.
+
+Quicksort properties:
+
+| --------------------------- |:------------------------:|
+| **worst time complexity**   | O(n^2)                   |
+| **average time complexity** | O(n log n)               |
+| **space-complexity**        | in-place                 |
+| **stability**               | unstable                 |
+| **best for**                | arrays, smaller datasets |
+ 
