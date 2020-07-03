@@ -15,6 +15,7 @@ def quicksort(items, first_idx, last_idx):
         quicksort(items, first_idx, pivot_idx - 1)
         quicksort(items, pivot_idx + 1, last_idx)
 
+
 # TODO rewrite to use mid point as pivot
 def partition(items, first_idx, last_idx):
     pivot_item = items[first_idx]
