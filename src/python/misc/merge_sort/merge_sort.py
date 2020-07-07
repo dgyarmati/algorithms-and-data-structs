@@ -1,3 +1,14 @@
+"""
+Description:
+1. divide array to smaller arrays until there's only one element in the divided arrays (which means that they are sorted)
+2. merge the small arrays while sorting them:
+    - loop through the split arrays, and add the smaller items to the original array, overwriting items in the original array
+    - add the rest of the items to the array from the split arrays
+
+    watch out for advancing all index pointers - left, right and that of the original array!
+"""
+
+
 def merge_sort(items):
     if len(items) > 1:
         mid = len(items) // 2
