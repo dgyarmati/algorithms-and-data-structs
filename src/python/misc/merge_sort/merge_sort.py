@@ -6,6 +6,12 @@ Description:
     - add the rest of the items to the array from the split arrays
 
     watch out for advancing all index pointers - left, right and that of the original array!
+
+    properties:
+    O(N log N)
+    stable
+    external - can sort things which do not fit in main memory, can handle massive amounts of data
+    out of place
 """
 
 
