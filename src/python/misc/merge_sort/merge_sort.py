@@ -1,17 +1,19 @@
 """
 Description:
-1. divide array to smaller arrays until there's only one element in the divided arrays (which means that they are sorted)
+1. divide array to smaller arrays (left, right) until there's only one element in the divided arrays (which means that they are sorted)
 2. merge the small arrays while sorting them:
-    - loop through the split arrays, and add the smaller items to the original array, overwriting items in the original array
-    - add the rest of the items to the array from the split arrays
-
-    watch out for advancing all index pointers - left, right and that of the original array!
+    - while left and right have elements:
+        - add smaller element to temporary array
+        - remove the previously added element from the respective array (left or right)
+    - now that left or right is empty:
+        - take the array (left or right) which still has elements, add their items to temp array
+        - remove the added element from respective array
 
     properties:
-    O(N log N)
-    stable
-    external - can sort things which do not fit in main memory, can handle massive amounts of data
-    out of place
+        O(N log N)
+        stable
+        external - can sort things which do not fit in main memory, can handle massive amounts of data
+        out of place
 """
 
 
