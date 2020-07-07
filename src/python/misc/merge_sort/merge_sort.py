@@ -10,21 +10,24 @@ def merge_sort(items):
         merge(items, left, right)
 
 
-def merge(items, left, right):
-    i = j = k = 0
-    while i < len(left) and j < len(right):
-        if left[i] < right[j]:
-            items[k] = left[i]
-            i += 1
+def merge(array, left, right):
+    left_idx = right_idx = array_idx = 0
+
+    while left_idx < len(left) and right_idx < len(right):
+        if left[left_idx] < right[right_idx]:
+            array[array_idx] = left[left_idx]
+            left_idx += 1
         else:
-            items[k] = right[j]
-            j += 1
-        k += 1
-    while i < len(left):
-        items[k] = left[i]
-        i += 1
-        k += 1
-    while j < len(right):
-        items[k] = right[j]
-        j += 1
-        k += 1
+            array[array_idx] = right[right_idx]
+            right_idx += 1
+        array_idx += 1
+
+    while left_idx < len(left):
+        array[array_idx] = left[left_idx]
+        left_idx += 1
+        array_idx += 1
+
+    while right_idx < len(right):
+        array[array_idx] = right[right_idx]
+        right_idx += 1
+        array_idx += 1
